@@ -1,0 +1,98 @@
+:root {
+  --font-primary: 'DM Sans', sans-serif;
+  --color-body-bg: hsl(26.7, 65.9%, 92%);
+  --color-main-bg: hsl(33.3, 100%, 98.2%);
+  --color-red-bg: hsl(10.1, 79%, 64.5%);
+  --color-cyan-bg: hsl(186, 34.3%, 60%);
+  --color-black: hsl(25, 47.4%, 14.9%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-brown: hsl(27.5, 9.9%, 52.5%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input, select, textarea, button {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-body-bg);
+}
+
+.wrapper {
+  padding: 70px 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 16px;
+  padding: 20px 24px 22px 20px;
+  border-radius: 10px;
+  color: var(--color-white);
+  background-color: var(--color-red-bg);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+main, footer {
+  padding: 24px 20px;
+  color: var(--color-brown);
+  background-color: var(--color-main-bg);
+}
+
+main {
+  border-radius: 10px 10px 0 0;
+}
+
+main h2 {
+  font-size: 24px;
+  line-height: 31px;
+  color: var(--color-black);
+}
+
+.ct-bar {
+  stroke-width: 33px;
+}
+
+.ct-label.ct-horizontal {
+  color: var(--color-brown);
+}
+
+footer {
+  border-radius: 0 0 10px 10px;
+}
+
+footer hr {
+  border: 1px solid var(--color-body-bg);
+}
