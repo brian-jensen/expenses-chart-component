@@ -47,6 +47,8 @@ body {
 
 .wrapper {
   padding: 70px 16px;
+  max-width: 540px;
+  margin: 0 auto;
 }
 
 header {
@@ -126,4 +128,65 @@ footer h2 {
 .footer-right {
   text-align: right;
   align-self: flex-end;
+}
+
+@media (min-width: 33.75em) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  header {
+    margin-top: auto;
+    margin-bottom: 24px;
+    padding: 32px 39px 25px 32px;
+  }
+
+  header p {
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  header h1 {
+    margin-top: 8px;
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  main {
+    padding: 32px 40px 0;
+  }
+
+  main h2 {
+    font-size: 32px;
+    line-height: 42px;
+    margin-bottom: 18px;
+  }
+
+  #chart {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  footer {
+    margin-bottom: auto;
+    padding: 32px 40px 40px;
+  }
+
+  footer hr {
+    margin-bottom: 32px;
+  }
+
+  footer p {
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  footer h2 {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
 }

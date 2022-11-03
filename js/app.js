@@ -19,13 +19,17 @@ const buildChart = (day, amount) => {
     item === today ? "hsl(186.1, 48.5%, 80.2%)" : "hsl(10.4, 100%, 76.3%)"
   );
 
+  const mq = window.matchMedia("(min-width: 540px)");
+  const barWidth = mq.matches ? 50 : 33;
+  const barRadius = mq.matches ? 5 : 3;
+
   const data = {
     labels: day,
     datasets: [
       {
         data: amount,
-        barThickness: 33,
-        borderRadius: 3,
+        barThickness: barWidth,
+        borderRadius: barRadius,
         borderSkipped: false,
         backgroundColor: bgColor,
         hoverBackgroundColor: bgHover,
@@ -33,7 +37,9 @@ const buildChart = (day, amount) => {
     ],
   };
 
-  let fontSize = 14;
+  const tickFontSize = mq.matches ? 15 : 12;
+  const toolTipFontSize = mq.matches ? 18 : 12;
+  const toolTipFontWeight = mq.matches ? 700 : 400;
 
   const config = {
     type: "bar",
@@ -43,9 +49,6 @@ const buildChart = (day, amount) => {
       aspectRatio: 1.275,
       onHover: (e, bar) => {
         e.native.target.style.cursor = bar[0] ? "pointer" : "default";
-      },
-      interaction: {
-        mode: "x",
       },
       layout: {
         padding: {
@@ -60,6 +63,9 @@ const buildChart = (day, amount) => {
           },
           ticks: {
             color: "hsl(27.5, 9.9%, 52.5%)",
+            font: {
+              size: tickFontSize,
+            },
           },
         },
         y: {
@@ -93,8 +99,8 @@ const buildChart = (day, amount) => {
           },
           bodyFont: {
             family: "DM Sans",
-            size: fontSize,
-            weight: 400,
+            size: toolTipFontSize,
+            weight: toolTipFontWeight,
           },
           callbacks: {
             title: () => {
@@ -112,7 +118,18 @@ const buildChart = (day, amount) => {
     },
   };
 
-  new Chart(document.getElementById("chart"), config);
+  const expenses = new Chart(document.getElementById("chart"), config);
+
+  const handleMediaQuery = () => {
+    expenses.options.scales.x.ticks.font.size = mq.matches ? 15 : 12;
+    expenses.options.plugins.tooltip.bodyFont.size = mq.matches ? 18 : 12;
+    expenses.options.plugins.tooltip.bodyFont.weight = mq.matches ? 700 : 400;
+    data.datasets[0].barThickness = mq.matches ? 50 : 33;
+    data.datasets[0].barRadius = mq.matches ? 5 : 3;
+    expenses.update();
+  };
+
+  addEventListener("resize", handleMediaQuery);
 };
 
 handleFetch();
