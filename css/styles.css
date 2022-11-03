@@ -15,7 +15,10 @@
   padding: 0;
 }
 
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
   border: none;
   box-shadow: none;
   outline: none;
@@ -32,7 +35,8 @@ a:active {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -65,13 +69,15 @@ header h1 {
   line-height: 31px;
 }
 
-main, footer {
+main,
+footer {
   padding: 24px 20px;
   color: var(--color-brown);
   background-color: var(--color-main-bg);
 }
 
 main {
+  padding-bottom: 20px;
   border-radius: 10px 10px 0 0;
 }
 
@@ -81,18 +87,43 @@ main h2 {
   color: var(--color-black);
 }
 
-.ct-bar {
-  stroke-width: 33px;
-}
-
-.ct-label.ct-horizontal {
-  color: var(--color-brown);
+#chart {
+  margin-left: -5px;
+  margin-right: -5px;
 }
 
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 0;
   border-radius: 0 0 10px 10px;
 }
 
 footer hr {
+  flex-basis: 100%;
   border: 1px solid var(--color-body-bg);
+  margin-bottom: 24px;
+}
+
+footer p {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+footer h2,
+footer .percent {
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+footer h2 {
+  margin-top: 4px;
+  font-size: 30px;
+  line-height: 39px;
+}
+
+.footer-right {
+  text-align: right;
+  align-self: flex-end;
 }
